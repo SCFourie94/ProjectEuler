@@ -1,0 +1,26 @@
+function fiboEvenSum(n) {
+  // You can do it!
+  let sum = 0;
+
+  if(n > 2){
+    sum = 2;
+    let f = 2;
+    let s = 3;
+    for(let i = 3; i < n; i++)
+    {
+      var fib = f + s;
+      f = s;
+      s = fib;
+
+      if(fib%2 == 0)
+        sum += fib;
+    }
+  }
+  else if(n === 2)
+    sum = 2;
+
+  console.log(sum);
+  return sum;
+}
+
+fiboEvenSum(10);
