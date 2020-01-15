@@ -1,0 +1,30 @@
+function largestPrimeFactor(number) {
+  // Good luck!
+  var primeFactors = [];
+
+  let num = number;
+
+  while(num%2 === 0)
+  {
+    primeFactors.push(2);
+    num/=2;
+  }
+
+  var numSqrt = Math.sqrt(number);
+  for(let i = 3; i <= numSqrt; i++)
+  {
+    while(num%i===0)
+    {
+      primeFactors.push(i);
+      num /= i;
+    }
+  }
+
+  if(primeFactors.length == 0)
+    primeFactors.push(number);
+
+  console.log(primeFactors);
+  return primeFactors[primeFactors.length - 1];
+}
+
+largestPrimeFactor(5);
