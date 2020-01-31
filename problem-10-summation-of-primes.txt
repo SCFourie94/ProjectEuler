@@ -1,0 +1,26 @@
+function primeSummation(n) {
+  // Good luck!
+  var stack = [];
+  var sum = 2;
+
+  for(let i = 3; i < n; i+=2)
+  {
+    let prime = true;
+
+    for(let j = 3; j < Math.sqrt(i)+1; j+=2)
+    {
+      if(i%j === 0)
+      {
+        prime = false;
+        break;
+      }
+    }
+
+    if(prime)
+      sum+=i;
+  }
+
+  return sum;
+}
+
+primeSummation(2000000);
