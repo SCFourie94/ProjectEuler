@@ -1,15 +1,12 @@
 function multiplesOf3and5(number) {
-  // Good luck!
-  var sum = 0;
-  var i = 0;
+  var sum = 0
+  var count = 0
 
-  while(i < number)
-  {
-    i%3 == 0 ? sum+=i : i%5 == 0 ? sum+=i : null; 
-
-    i++;
+  while(count < number) {
+    sum += count % 3 === 0 || count % 5 === 0 ? count : 0
+    count++
   }
-
+  console.log(sum)
   return sum;
 }
 
