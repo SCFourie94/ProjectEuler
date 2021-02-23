@@ -1,30 +1,20 @@
 function largestPrimeFactor(number) {
-  // Good luck!
-  var primeFactors = [];
+  let prime = 1;
 
-  let num = number;
-
-  while(num%2 === 0)
-  {
-    primeFactors.push(2);
-    num/=2;
+  for(var i  = 2; i <= number; i++){
+    if(isPrime(i) && number % i === 0 && i > prime)
+      prime = i
   }
 
-  var numSqrt = Math.sqrt(number);
-  for(let i = 3; i <= numSqrt; i++)
-  {
-    while(num%i===0)
-    {
-      primeFactors.push(i);
-      num /= i;
-    }
-  }
-
-  if(primeFactors.length == 0)
-    primeFactors.push(number);
-
-  console.log(primeFactors);
-  return primeFactors[primeFactors.length - 1];
+  return prime;
 }
 
-largestPrimeFactor(5);
+function isPrime(num) {
+  for(var i = 2; i <= Math.sqrt(num); i++){
+    if(num % i === 0)
+      return false
+  }
+  return true
+}
+
+largestPrimeFactor(13195);

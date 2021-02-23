@@ -1,33 +1,23 @@
 function largestPalindromeProduct(n) {
-  // Good luck!
-  let palindrome = 0;
-  let start = Math.pow(10, n-1);
-  let end = Math.pow(10,n);
-
-  for(let i = end*.91; i < end; i++)
-  {
-    for(let j = i; j < end; j++)
-    {
-      var product = i * j;
-      let isPalindrome = true;
-
-      const productStr = product.toString();
-
-      let count = 0;
-
-      while(isPalindrome && count < productStr.length/2)
-      {
-        if(productStr[count] !== productStr[productStr.length-1-count])
-          isPalindrome = false;
-        
-        count++;
-      }
-      if(isPalindrome && palindrome < product)  
-        palindrome = product;
+  var palindrome = 0
+  for(var i = Math.pow(10, n)/2; i < Math.pow(10, n); i++){
+    for(var j = Math.pow(10, n)*0.75; j < Math.pow(10, n); j++){
+      var temp = i * j
+      if(checkPalindrome(temp) && temp > palindrome)
+        palindrome = temp
     }
   }
-  console.log(palindrome);
   return palindrome;
+}
+
+function checkPalindrome(prod){
+  var char = prod.toString()
+  var charArr = char.split('')
+  for(let c of charArr) {
+    if(c !== charArr.pop())
+      return false
+  }
+  return true
 }
 
 largestPalindromeProduct(3);
