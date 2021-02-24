@@ -1,19 +1,19 @@
 function sumSquareDifference(n) {
-  // Good luck!
-  let sumSquares = 0;
-  let sumNat = 0;
+  return Math.pow(sum(n), 2) - sumOfSquares(n);
+}
 
-  for(let i = 1; i <= n; i++)
-  {
-    sumSquares += i*i;
-    sumNat += i;
-  }
+function sumOfSquares(n){
+  if(n == 1)
+    return 1
+  else
+    return Math.pow(n, 2) + sumOfSquares(n-1)
+}
 
-  sumNat = Math.pow(sumNat, 2);
-
-  const diff = sumNat - sumSquares;
-  console.log(diff);
-  return diff;
+function sum(n){
+  if(n == 1)
+    return 1
+  else
+    return n + sum(n-1)
 }
 
 sumSquareDifference(100);

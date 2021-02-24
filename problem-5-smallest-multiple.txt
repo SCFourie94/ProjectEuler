@@ -1,28 +1,28 @@
 function smallestMult(n) {
-  // Good luck!
-  let multiple = 0;
-  let count = n*(n-1);
-  let found = false;
+  var multiple = 0;
+  var found = false;
+  var count = n % 2 == 0 ? n : n+1
 
-  while(!found)
-  {
-    for(let i = 1; i <= n; i++)
-    {
-      if(count%i !== 0)
-      {
-        found = false;
-        break;
-      }
-      else
-        found = true;
-    }
+  while(!found){
+    multiple = multiples(count, n)
 
-    if(found)
-      multiple = count;
+    if(multiple == false)
+      count += 2
     else
-      count+=n*(n-1);
+      break
   }
+  
   return multiple;
+}
+
+function multiples(c, n){
+  if(n == 1){
+    return c
+  } else if(c % n != 0){
+    return false
+  } else {
+    return multiples(c, n-1)
+  }
 }
 
 smallestMult(20);
